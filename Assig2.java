@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.*;
 
 /**  Main program for Assignment 2.  Your PHPArray class must work with this 
@@ -11,8 +12,14 @@ import java.util.*;
  */
 public class Assig2
 {
-	public static void main(String [] args)
+	public static void main(String [] args) throws FileNotFoundException
 	{
+		/**TEMPORARY FOR DEBUGGING
+		File file = new File("myout.txt"); 
+		FileOutputStream fos = new FileOutputStream(file);
+		PrintStream ps = new PrintStream(fos);
+		System.setOut(ps);**/
+		
 		// Declare the object.  Note that the parameterized type is for the data.
 		// The key will always be String (or int, at least from user's view).  There are
 		// many different ways to implement the data and methods of this class, and 
