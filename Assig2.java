@@ -14,11 +14,6 @@ public class Assig2
 {
 	public static void main(String [] args) throws FileNotFoundException
 	{
-		/**TEMPORARY FOR DEBUGGING
-		File file = new File("myout.txt"); 
-		FileOutputStream fos = new FileOutputStream(file);
-		PrintStream ps = new PrintStream(fos);
-		System.setOut(ps);**/
 		
 		// Declare the object.  Note that the parameterized type is for the data.
 		// The key will always be String (or int, at least from user's view).  There are
