@@ -288,6 +288,49 @@ public class Assig2
 		B.forEach((x) -> { if (x.indexOf("in") >= 0) System.out.println(x + " contains in");});	
 		System.out.println();
 		C.forEach((x) -> { x.append("-inconceivable!"); System.out.println(x);});
+		
+		//TESTING EXTRA CREDIT METHODS shuffle() and array_reverse()
+		System.out.println("\n");
+		System.out.println("**Testing extra credit shuffle() and array_reverse()**\n");
+		PHPArray<String> E = new PHPArray<String>(4);
+		String [] city = {"Pittsburgh", "Miami", "Colorado", "Houston", "Philadelphia",
+							"Atlanta", "Washington", "Chicago"};
+		String [] team = {"Pirates", "Marlins", "Rockies", "Astros", "Phillies",
+							"Braves", "Nationals", "Cubs"};
+		for (int i = 0; i < city.length; i++)
+		{
+			E.put(city[i], team[i]);
+		}
+		PHPArray.Pair<String> currE;
+		System.out.println();
+		System.out.println("\tOriginal Data:");
+		while ((currE = E.each()) != null)
+		{
+			System.out.println("Key: " + currE.key + " Value: " + currE.value);
+		}
+		System.out.println();
+	
+		//Test shuffle
+		System.out.println("\tTesting extra credit shuffle() method");
+		E.shuffle();
+		E.reset();
+		System.out.println("\tShuffled Data:");
+		while ((currE = E.each()) != null)
+		{
+			System.out.println("Key: " + currE.key + " Value: " + currE.value);
+		}
+		System.out.println();
+		System.out.println("\tTesting the array_reverse() method");
+		System.out.println("\tOriginal data:");
+		E.reset();
+		while ((currE = E.each()) != null)
+		{
+			System.out.println("Key: " + currE.key + " Value: " + currE.value);
+		}
+		System.out.println();
+		testReverse(E);
+		
+	
 	}
 	
 	// This method is using the Iterable interface to allow easy iteration through
@@ -318,6 +361,26 @@ public class Assig2
 			PHPArray.Pair<String> currA;
 			System.out.println("\tFlipped data:");
 			while ((currA = Aflip.each()) != null)
+			{
+				System.out.println("Key: " + currA.key + " Value: " + currA.value);
+			}
+			System.out.println();
+		}
+		catch (ClassCastException e)
+		{
+			System.out.println(e.toString());
+			System.out.println();
+		}
+	}	
+	//Test extra credit array_reverse() method
+	public static <V> void testReverse(PHPArray<V> Ar)
+	{
+		try
+		{
+			PHPArray<V> Areverse = Ar.array_reverse();
+			PHPArray.Pair<V> currA;
+			System.out.println("\tReversed data:");
+			while ((currA = Areverse.each()) != null)
 			{
 				System.out.println("Key: " + currA.key + " Value: " + currA.value);
 			}

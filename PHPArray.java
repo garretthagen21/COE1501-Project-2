@@ -170,6 +170,28 @@ public class PHPArray<V>implements Iterable<V>{
 		}
 		return tableFlip;
 	}
+	//EXTRA CREDIT IMPLEMENTATION OF array_reverse()
+	public PHPArray<V> array_reverse() throws ClassCastException{
+		PHPArray<V> tableReverse = new PHPArray<V>(this.hashTable.length);
+		Node<V> currentNode = last;
+		while(currentNode != null) {
+			tableReverse.put(currentNode.pair.key, currentNode.pair.value);
+			currentNode = currentNode.previous;
+		}
+		return tableReverse;
+	}
+	
+	//EXTRA CREDIT IMPLEMENTATION OF shuffle()
+	public void shuffle() throws ClassCastException{
+			ArrayList<Pair<V>> pairs = (ArrayList<Pair<V>>)pairs();
+			Collections.shuffle(pairs);
+			clearTable();
+			//Rebuild the hash table and linked list
+			for(int i = 0;i<pairs.size();i++) {
+				this.put(pairs.get(i).key,pairs.get(i).value);
+			}
+		}
+		
 	private void clearTable() {
 		hashTable =  (Node<V>[])new Node[hashTable.length];
 		itemCount = 0;
@@ -185,6 +207,7 @@ public class PHPArray<V>implements Iterable<V>{
 				this.put(i,pairs.get(i).value);
 			}
 	  	}
+	
 
 	public void asort() {
 		ArrayList<Pair<V>> pairs = (ArrayList<Pair<V>>)pairs();
